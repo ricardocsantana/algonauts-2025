@@ -1,6 +1,6 @@
 # [TRIBE: TRImodal Brain Encoder for whole-brain fMRI response prediction](https://www.arxiv.org/abs/2507.22229)
 
-This repository contains the Brain & AI team's submission for the Algonauts 2025 competition. It can be used for training and evaluating encoding models to predict fMRI brain responses to naturalistic video stimuli. For more details, please refer to the companion paper [here](https://www.arxiv.org/abs/2507.22229).
+This repository can be used for training and evaluating encoding models to predict fMRI brain responses to naturalistic video stimuli. 
 
 ## Create the environment
 
@@ -62,4 +62,4 @@ Training and results can be monitored using [Weights & Biases](https://docs.wand
 
 ## License
 
-This repository is CC-BY-NC licensed, as found in the LICENSE file. Also check-out Meta Open Source [Terms of Use](https://opensource.fb.com/legal/terms/) and [Privacy Policy](https://opensource.fb.com/legal/privacy/).
+This repository is CC-BY-NC licensed, as found in the LICENSE file. 
