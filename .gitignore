@@ -1,4 +1,5 @@
 data_utils/build/
 modeling_utils/build/
+algonauts2025/download/algonauts_2025.competitors
 **/*.egg-info
 **/*.pyc
