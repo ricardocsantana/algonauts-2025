@@ -11,7 +11,7 @@ PROJECT_NAME = "algonauts-2025"
 
 
 SLURM_PARTITION = "partition"
-DATADIR = "save_dir"
+DATADIR = "/Users/ricardo/Documents/GitHub/algonauts-2025"
 BASEDIR = os.path.expandvars("save_dir")
 
 CACHEDIR = os.path.join(BASEDIR, "cache", PROJECT_NAME)
@@ -43,6 +43,9 @@ for feature in [
         "keep_in_ram": True,
         "mode": "cached",
         "version": "final",
+        "cluster": "local",
+        "gpus_per_node": 1,  # Each parallel feature job uses 1 GPU
+        "max_jobs": 4,  # Only run 4 jobs at once (one per GPU)
     }
 
 default_config = {
@@ -57,6 +60,7 @@ default_config = {
             "query": None,
             "infra": {
                 "folder": CACHEDIR,
+                "cluster": "local",
             },
             "enhancers": {
                 "addtext": {"name": "AddText"},

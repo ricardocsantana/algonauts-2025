@@ -24,7 +24,7 @@ update = {
     "infra.mode": "force",
     "data.num_workers": 0,
     "data.study.query": "subject_timeline_index<10",
-    "data.study.cache_all_timelines": False,
+    # "data.study.cache_all_timelines": False,
 }
 
 

@@ -1,0 +1,13 @@
+{"time":"2025-12-15T23:07:55.748317Z","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2025-12-15T23:07:56.280809Z","level":"INFO","msg":"stream: created new stream","id":"default-ba3c2ae9"}
+{"time":"2025-12-15T23:07:56.281284Z","level":"INFO","msg":"handler: started","stream_id":"default-ba3c2ae9"}
+{"time":"2025-12-15T23:07:56.281344Z","level":"INFO","msg":"writer: started","stream_id":"default-ba3c2ae9"}
+{"time":"2025-12-15T23:07:56.281587Z","level":"INFO","msg":"stream: started","id":"default-ba3c2ae9"}
+{"time":"2025-12-15T23:07:56.281707Z","level":"INFO","msg":"sender: started","stream_id":"default-ba3c2ae9"}
+{"time":"2025-12-15T23:09:41.20641Z","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":70}
+{"time":"2025-12-15T23:09:41.207923Z","level":"INFO","msg":"stream: closing","id":"default-ba3c2ae9"}
+{"time":"2025-12-15T23:09:41.208607Z","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":19}
+{"time":"2025-12-15T23:09:41.998807Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-15T23:09:42.902592Z","level":"INFO","msg":"handler: closed","stream_id":"default-ba3c2ae9"}
+{"time":"2025-12-15T23:09:42.902917Z","level":"INFO","msg":"sender: closed","stream_id":"default-ba3c2ae9"}
+{"time":"2025-12-15T23:09:42.902944Z","level":"INFO","msg":"stream: closed","id":"default-ba3c2ae9"}

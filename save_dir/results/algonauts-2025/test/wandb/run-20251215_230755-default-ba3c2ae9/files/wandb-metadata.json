@@ -1,0 +1,39 @@
+{
+  "os": "macOS-26.2-arm64-arm-64bit",
+  "python": "CPython 3.12.12",
+  "startedAt": "2025-12-15T23:07:55.453717Z",
+  "args": [
+    "--query",
+    "subject=='Algonauts2025/sub-01'"
+  ],
+  "program": "-m algonauts2025.grids.test_run",
+  "git": {
+    "remote": "https://github.com/ricardocsantana/algonauts-2025.git",
+    "commit": "c23cbd290ded9e613c5cf333fb9631f31004aef4"
+  },
+  "email": "crsa@kth.se",
+  "root": "save_dir/results/algonauts-2025/test",
+  "host": "vpn10-118.remote-access.kth.se",
+  "executable": "/opt/homebrew/Caskroom/miniconda/base/envs/dialog2brain/bin/python",
+  "cpu_count": 8,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "162920308736"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "apple": {
+    "name": "Apple M1 Pro",
+    "ecpuCores": 2,
+    "pcpuCores": 6,
+    "gpuCores": 14,
+    "memoryGb": 16,
+    "swapTotalBytes": "3221225472",
+    "ramTotalBytes": "17179869184"
+  },
+  "writerId": "efsos5lebcehq114ehx1azqyy6smab9z"
+}

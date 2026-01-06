@@ -1,0 +1,22 @@
+enhancers:
+  addtext.name: AddText
+  addsentence:
+    name: AddSentenceToWords
+    override_sentences: false
+  addcontext:
+    max_context_len: 1024
+    name: AddContextToWords
+    sentence_only: false
+    split_field: split
+  removemissing:
+    event_types: Word
+    field: context
+    name: RemoveMissing
+  extractaudio.name: ExtractAudioFromVideo
+  chunkevents:
+    event_type_to_chunk: Sound
+    event_type_to_use: null
+    max_duration: 60.0
+    min_duration: 30.0
+    name: ChunkEvents
+infra.version: 0-v2

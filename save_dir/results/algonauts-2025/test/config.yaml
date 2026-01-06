@@ -1,0 +1,288 @@
+data:
+    study:
+        path: !!python/object/apply:pathlib.PosixPath
+        - /
+        - Users
+        - ricardo
+        - Documents
+        - GitHub
+        - algonauts-2025
+        - algonauts2025
+        query: subject_timeline_index<10
+        enhancers:
+            addtext:
+                name: AddText
+            addsentence:
+                name: AddSentenceToWords
+                max_unmatched_ratio: 0.05
+                override_sentences: false
+            addcontext:
+                name: AddContextToWords
+                sentence_only: false
+                max_context_len: 1024
+                split_field: split
+            removemissing:
+                name: RemoveMissing
+                event_types: Word
+                field: context
+            extractaudio:
+                name: ExtractAudioFromVideo
+            chunkevents:
+                name: ChunkEvents
+                event_type_to_chunk: Sound
+                event_type_to_use: null
+                min_duration: 30.0
+                max_duration: 60.0
+        infra:
+            folder: save_dir/cache/algonauts-2025
+            cluster: processpool
+            logs: '{folder}/logs/{user}/%j'
+            job_name: null
+            timeout_min: null
+            nodes: 1
+            tasks_per_node: 1
+            cpus_per_task: null
+            gpus_per_node: null
+            mem_gb: null
+            max_pickle_size_gb: null
+            slurm_constraint: null
+            slurm_partition: null
+            slurm_account: null
+            slurm_qos: null
+            slurm_use_srun: false
+            slurm_additional_parameters: null
+            conda_env: null
+            workdir: null
+            permissions: 511
+            version: 0-v2
+            keep_in_ram: true
+            max_jobs: 128
+            min_samples_per_job: 1
+            forbid_single_item_computation: false
+            mode: cached
+    neuro:
+        name: Fmri
+        infra:
+            folder: save_dir/cache/algonauts-2025
+            cluster: null
+            logs: '{folder}/logs/{user}/%j'
+            job_name: null
+            timeout_min: null
+            nodes: 1
+            tasks_per_node: 1
+            cpus_per_task: null
+            gpus_per_node: null
+            mem_gb: null
+            max_pickle_size_gb: null
+            slurm_constraint: null
+            slurm_partition: null
+            slurm_account: null
+            slurm_qos: null
+            slurm_use_srun: false
+            slurm_additional_parameters: null
+            conda_env: null
+            workdir: null
+            permissions: 511
+            version: final
+            keep_in_ram: true
+            max_jobs: 128
+            min_samples_per_job: 1
+            forbid_single_item_computation: false
+            mode: cached
+    text_feature:
+        layers:
+        - 0.5
+        - 0.75
+        - 1.0
+        layer_aggregation: group_mean
+        name: LLAMA3p2
+        infra:
+            folder: save_dir/cache/algonauts-2025
+            cluster: null
+            logs: '{folder}/logs/{user}/%j'
+            job_name: null
+            timeout_min: null
+            nodes: 1
+            tasks_per_node: 1
+            cpus_per_task: null
+            gpus_per_node: null
+            mem_gb: null
+            max_pickle_size_gb: null
+            slurm_constraint: null
+            slurm_partition: null
+            slurm_account: null
+            slurm_qos: null
+            slurm_use_srun: false
+            slurm_additional_parameters: null
+            conda_env: null
+            workdir: null
+            permissions: 511
+            version: final
+            keep_in_ram: true
+            max_jobs: 128
+            min_samples_per_job: 1
+            forbid_single_item_computation: false
+            mode: cached
+        device: cpu
+    audio_feature:
+        name: Wav2VecBert
+        device: cpu
+        layer_aggregation: group_mean
+        infra:
+            folder: save_dir/cache/algonauts-2025
+            cluster: null
+            logs: '{folder}/logs/{user}/%j'
+            job_name: null
+            timeout_min: null
+            nodes: 1
+            tasks_per_node: 1
+            cpus_per_task: null
+            gpus_per_node: null
+            mem_gb: null
+            max_pickle_size_gb: null
+            slurm_constraint: null
+            slurm_partition: null
+            slurm_account: null
+            slurm_qos: null
+            slurm_use_srun: false
+            slurm_additional_parameters: null
+            conda_env: null
+            workdir: null
+            permissions: 511
+            version: final
+            keep_in_ram: true
+            max_jobs: 128
+            min_samples_per_job: 1
+            forbid_single_item_computation: false
+            mode: cached
+        layers:
+        - 0.5
+        - 0.75
+        - 1.0
+    video_feature:
+        layers:
+        - 0.5
+        - 0.75
+        - 1.0
+        layer_aggregation: group_mean
+        name: VJEPA2
+        device: cpu
+        infra:
+            folder: save_dir/cache/algonauts-2025
+            cluster: null
+            logs: '{folder}/logs/{user}/%j'
+            job_name: null
+            timeout_min: null
+            nodes: 1
+            tasks_per_node: 1
+            cpus_per_task: null
+            gpus_per_node: null
+            mem_gb: null
+            max_pickle_size_gb: null
+            slurm_constraint: null
+            slurm_partition: null
+            slurm_account: null
+            slurm_qos: null
+            slurm_use_srun: false
+            slurm_additional_parameters: null
+            conda_env: null
+            workdir: null
+            permissions: 511
+            version: final
+            keep_in_ram: true
+            max_jobs: 128
+            min_samples_per_job: 1
+            forbid_single_item_computation: false
+            mode: cached
+    layers:
+    - 0.5
+    - 0.75
+    - 1.0
+    layer_aggregation: group_mean
+    num_workers: 0
+seed: 33
+brain_model_config:
+    name: FmriEncoder
+    n_subjects: 4
+    feature_aggregation: cat
+    layer_aggregation: cat
+    subject_embedding: false
+    modality_dropout: 0.3
+loss:
+    name: MSELoss
+    kwargs: {}
+optim:
+    name: LightningOptimizer
+    optimizer:
+        name: Adam
+        lr: 0.0001
+        kwargs:
+            weight_decay: 0.0
+    scheduler:
+        name: OneCycleLR
+        kwargs:
+            max_lr: 0.0001
+            pct_start: 0.1
+    interval: step
+metrics:
+-   log_name: pearson
+    name: MultidimPearsonCorrCoef
+    kwargs:
+        num_outputs: 1000
+-   log_name: subj_pearson
+    name: GroupedMetric
+    metric_name: MultidimPearsonCorrCoef
+    kwargs:
+        num_outputs: 1000
+-   log_name: retrieval_top1
+    name: TopkAcc
+    topk: 1
+monitor: val/pearson
+wandb_config:
+    offline: false
+    host: null
+    name: null
+    group: default
+    entity: null
+    version: null
+    dir: null
+    id: null
+    anonymous: null
+    project: algonauts-2025
+    log_model: false
+    experiment: null
+    prefix: ''
+accelerator: gpu
+n_epochs: 6
+patience: null
+limit_train_batches: null
+enable_progress_bar: true
+log_every_n_steps: 5
+fast_dev_run: false
+save_checkpoints: false
+checkpoint_path: null
+test_only: false
+infra:
+    folder: save_dir/results/algonauts-2025/test
+    cluster: null
+    logs: '{folder}/logs/{user}/%j'
+    job_name: null
+    timeout_min: null
+    nodes: 1
+    tasks_per_node: 1
+    cpus_per_task: null
+    gpus_per_node: 1
+    mem_gb: null
+    max_pickle_size_gb: null
+    slurm_constraint: null
+    slurm_partition: null
+    slurm_account: null
+    slurm_qos: null
+    slurm_use_srun: false
+    slurm_additional_parameters: null
+    conda_env: null
+    workdir: null
+    permissions: 511
+    version: '1'
+    mode: force
+    keep_in_ram: false

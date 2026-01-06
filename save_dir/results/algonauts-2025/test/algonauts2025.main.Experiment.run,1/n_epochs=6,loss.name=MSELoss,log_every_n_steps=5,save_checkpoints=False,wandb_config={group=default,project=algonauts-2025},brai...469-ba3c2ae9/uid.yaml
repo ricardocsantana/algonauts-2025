@@ -1,0 +1,60 @@
+brain_model_config:
+  modality_dropout: 0.3
+  n_subjects: 4
+data:
+  audio_feature.infra.version: final
+  layer_aggregation: group_mean
+  layers:
+  - 0.5
+  - 0.75
+  - 1.0
+  neuro.infra.version: final
+  study:
+    enhancers:
+      addtext.name: AddText
+      addsentence.name: AddSentenceToWords
+      addcontext:
+        max_context_len: 1024
+        name: AddContextToWords
+        sentence_only: false
+      removemissing.name: RemoveMissing
+      extractaudio.name: ExtractAudioFromVideo
+      chunkevents:
+        event_type_to_chunk: Sound
+        max_duration: 60.0
+        min_duration: 30.0
+        name: ChunkEvents
+    infra.version: 0-v2
+    query: subject_timeline_index<10
+  text_feature.infra.version: final
+  video_feature:
+    device: cpu
+    infra.version: final
+log_every_n_steps: 5
+loss.name: MSELoss
+metrics:
+- kwargs.num_outputs: 1000
+  log_name: pearson
+  name: MultidimPearsonCorrCoef
+- kwargs.num_outputs: 1000
+  log_name: subj_pearson
+  metric_name: MultidimPearsonCorrCoef
+  name: GroupedMetric
+- log_name: retrieval_top1
+  name: TopkAcc
+  topk: 1
+n_epochs: 6
+optim:
+  optimizer:
+    kwargs.weight_decay: 0.0
+    lr: 0.0001
+    name: Adam
+  scheduler:
+    kwargs:
+      max_lr: 0.0001
+      pct_start: 0.1
+    name: OneCycleLR
+save_checkpoints: false
+wandb_config:
+  group: default
+  project: algonauts-2025

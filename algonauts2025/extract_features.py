@@ -60,7 +60,7 @@ def extract_features(
     modalities : list of str
         List of modalities to extract. Options: ['video', 'audio', 'text']
     device : str
-        Device to use for feature extraction ('auto', 'cpu', 'cuda', or 'mps')
+        Device to use for feature extraction ('auto', 'cpu', 'cuda', "mps")
     query : str, optional
         Optional query to filter the dataset (e.g., 'subject=="sub-01"')
     """

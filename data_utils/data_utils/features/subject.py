@@ -91,8 +91,8 @@ class SubjectEncoder(pydantic.BaseModel):
 
         if self._missing_default is None:
 
-            shape = tuple(tensor.shape[: -1 ])
-            self._missing_default = torch.zeros(*shape, dtype=tensor.dtype)
+            shape = tensor.shape
+            self._missing_default = torch.zeros(shape, dtype=tensor.dtype)
         return tensor
 
 

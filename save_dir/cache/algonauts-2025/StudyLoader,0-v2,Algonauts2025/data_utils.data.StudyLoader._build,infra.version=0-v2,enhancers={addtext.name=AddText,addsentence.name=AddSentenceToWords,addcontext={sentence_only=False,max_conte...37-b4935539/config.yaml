@@ -1,0 +1,51 @@
+enhancers:
+  addtext.name: AddText
+  addsentence:
+    max_unmatched_ratio: 0.05
+    name: AddSentenceToWords
+    override_sentences: false
+  addcontext:
+    max_context_len: 1024
+    name: AddContextToWords
+    sentence_only: false
+    split_field: split
+  removemissing:
+    event_types: Word
+    field: context
+    name: RemoveMissing
+  extractaudio.name: ExtractAudioFromVideo
+  chunkevents:
+    event_type_to_chunk: Sound
+    event_type_to_use: null
+    max_duration: 60.0
+    min_duration: 30.0
+    name: ChunkEvents
+infra:
+  cluster: processpool
+  conda_env: null
+  cpus_per_task: null
+  folder: save_dir/cache/algonauts-2025
+  forbid_single_item_computation: false
+  gpus_per_node: null
+  job_name: null
+  keep_in_ram: true
+  logs: '{folder}/logs/{user}/%j'
+  max_jobs: 128
+  max_pickle_size_gb: null
+  mem_gb: null
+  min_samples_per_job: 1
+  mode: cached
+  nodes: 1
+  permissions: 511
+  slurm_account: null
+  slurm_additional_parameters: null
+  slurm_constraint: null
+  slurm_partition: null
+  slurm_qos: null
+  slurm_use_srun: false
+  tasks_per_node: 1
+  timeout_min: null
+  version: 0-v2
+  workdir: null
+path: /Users/ricardo/Documents/GitHub/algonauts-2025/algonauts2025
+query: subject_timeline_index<10
